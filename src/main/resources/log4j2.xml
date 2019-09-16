@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%p] (%F:%L) - %m%n" />
+        </Console>
+    </appenders>
+
+    <loggers>
+        <root level="info">
+            <AppenderRef ref="Console" />
+        </root>
+    </loggers>
+</configuration>
