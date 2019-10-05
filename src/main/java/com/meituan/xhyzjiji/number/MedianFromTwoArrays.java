@@ -50,10 +50,11 @@ public class MedianFromTwoArrays {
                  Arrays.toString(nums1), Arrays.toString(nums2), solution.findMedianSortedArrays(nums1, nums2));
     }
 
-    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
-        TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
-
-    }
+    /*未解决*/
+//    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+//        TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+//
+//    }
 
     // 6 ms, 50.9 MB, O(m+n)不满足题目要求
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
