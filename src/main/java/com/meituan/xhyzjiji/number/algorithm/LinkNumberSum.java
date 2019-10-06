@@ -1,4 +1,4 @@
-package com.meituan.xhyzjiji.number;
+package com.meituan.xhyzjiji.number.algorithm;
 
 import java.util.ArrayList;
 import java.util.Arrays;

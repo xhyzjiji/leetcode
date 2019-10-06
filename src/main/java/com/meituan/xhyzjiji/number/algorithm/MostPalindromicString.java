@@ -1,4 +1,4 @@
-package com.meituan.xhyzjiji.number;
+package com.meituan.xhyzjiji.number.algorithm;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,13 +31,13 @@ public class MostPalindromicString {
         String tc1 = "babad";
         String tc2 = "cbbd";
 
-        log.info("{} palindromic string is {}", tc1, longestPalindrome(tc1));
-        log.info("{} palindromic string is {}", tc2, longestPalindrome(tc2));
+        log.info("{} palindromic string is {}", tc1, solution.longestPalindrome(tc1));
+        log.info("{} palindromic string is {}", tc2, solution.longestPalindrome(tc2));
     }
 
     // 6ms, 35.6MB
     // 思路：先找相同字符子串，再左右搜索重复字符，组成最长回文子串
-    public static String longestPalindrome(String s) {
+    public String longestPalindrome(String s) {
         byte[] originByteArray = s.getBytes();
 
         int nextIndex = 0;
