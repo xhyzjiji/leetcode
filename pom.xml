@@ -14,6 +14,12 @@
       <artifactId>xmd-log4j2</artifactId>
       <version>1.3.5</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.14.3</version>
+    </dependency>
   </dependencies>
 
 </project>

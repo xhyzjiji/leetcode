@@ -207,21 +207,21 @@ public class ConcurrentPrint {
 //    }
 
 
-//    14ms
+//    12ms
 //    private Semaphore s1 = new Semaphore(0);
 //    private Semaphore s2 = new Semaphore(0);
 //    public void first(Runnable printFirst) throws InterruptedException {
 //
 //        // printFirst.run() outputs "first". Do not change or remove this line.
 //        printFirst.run();
-//        s1.release(1);
+//        s1.release();
 //    }
 //
 //    public void second(Runnable printSecond) throws InterruptedException {
 //        s1.acquire();
 //        // printSecond.run() outputs "second". Do not change or remove this line.
 //        printSecond.run();
-//        s2.release(1);
+//        s2.release();
 //    }
 //
 //    public void third(Runnable printThird) throws InterruptedException {
