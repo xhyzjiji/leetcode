@@ -132,53 +132,53 @@ public class ConcurrentPrint {
         }
     }
 
-    private ReentrantLock lock1 = new ReentrantLock();
-    private Condition block1 = lock1.newCondition();
-    private ReentrantLock lock2 = new ReentrantLock();
-    private Condition block2 = lock2.newCondition();
-    public void first(Runnable printFirst) throws InterruptedException {
-        // printFirst.run() outp`uts "first". Do not change or remove this line.
-        printFirst.run();
-        lock1.lock();
-        try {
-            System.out.println(Thread.currentThread().getName() + " sig b1");
-            block1.signalAll();
-        } finally {
-            lock1.unlock();
-        }
-    }
-
-    public void second(Runnable printSecond) throws InterruptedException {
-        // printSecond.run() outputs "second". Do not change or remove this line.
-        lock1.lock();
-        try {
-            System.out.println(Thread.currentThread().getName() + " wait b1");
-            block1.await();
-            printSecond.run();
-        } finally {
-            lock1.unlock();
-        }
-
-        lock2.lock();
-        try {
-            System.out.println(Thread.currentThread().getName() + " sig b2");
-            block2.signalAll();
-        } finally {
-            lock2.unlock();
-        }
-    }
-
-    public void third(Runnable printThird) throws InterruptedException {
-        // printThird.run() outputs "third". Do not change or remove this line.
-        lock2.lock();
-        try {
-            System.out.println(Thread.currentThread().getName() + " wait b2");
-            block2.await();
-            printThird.run();
-        } finally {
-            lock2.unlock();
-        }
-    }
+//    private ReentrantLock lock1 = new ReentrantLock();
+//    private Condition block1 = lock1.newCondition();
+//    private ReentrantLock lock2 = new ReentrantLock();
+//    private Condition block2 = lock2.newCondition();
+//    public void first(Runnable printFirst) throws InterruptedException {
+//        // printFirst.run() outp`uts "first". Do not change or remove this line.
+//        printFirst.run();
+//        lock1.lock();
+//        try {
+//            System.out.println(Thread.currentThread().getName() + " sig b1");
+//            block1.signalAll();
+//        } finally {
+//            lock1.unlock();
+//        }
+//    }
+//
+//    public void second(Runnable printSecond) throws InterruptedException {
+//        // printSecond.run() outputs "second". Do not change or remove this line.
+//        lock1.lock();
+//        try {
+//            System.out.println(Thread.currentThread().getName() + " wait b1");
+//            block1.await();
+//            printSecond.run();
+//        } finally {
+//            lock1.unlock();
+//        }
+//
+//        lock2.lock();
+//        try {
+//            System.out.println(Thread.currentThread().getName() + " sig b2");
+//            block2.signalAll();
+//        } finally {
+//            lock2.unlock();
+//        }
+//    }
+//
+//    public void third(Runnable printThird) throws InterruptedException {
+//        // printThird.run() outputs "third". Do not change or remove this line.
+//        lock2.lock();
+//        try {
+//            System.out.println(Thread.currentThread().getName() + " wait b2");
+//            block2.await();
+//            printThird.run();
+//        } finally {
+//            lock2.unlock();
+//        }
+//    }
 
     // 12ms
 //    private volatile boolean block1 = true;
@@ -208,26 +208,26 @@ public class ConcurrentPrint {
 
 
 //    12ms
-//    private Semaphore s1 = new Semaphore(0);
-//    private Semaphore s2 = new Semaphore(0);
-//    public void first(Runnable printFirst) throws InterruptedException {
-//
-//        // printFirst.run() outputs "first". Do not change or remove this line.
-//        printFirst.run();
-//        s1.release();
-//    }
-//
-//    public void second(Runnable printSecond) throws InterruptedException {
-//        s1.acquire();
-//        // printSecond.run() outputs "second". Do not change or remove this line.
-//        printSecond.run();
-//        s2.release();
-//    }
-//
-//    public void third(Runnable printThird) throws InterruptedException {
-//        s2.acquire();
-//        // printThird.run() outputs "third". Do not change or remove this line.
-//        printThird.run();
-//    }
+    private Semaphore s1 = new Semaphore(0);
+    private Semaphore s2 = new Semaphore(0);
+    public void first(Runnable printFirst) throws InterruptedException {
+
+        // printFirst.run() outputs "first". Do not change or remove this line.
+        printFirst.run();
+        s1.release();
+    }
+
+    public void second(Runnable printSecond) throws InterruptedException {
+        s1.acquire();
+        // printSecond.run() outputs "second". Do not change or remove this line.
+        printSecond.run();
+        s2.release();
+    }
+
+    public void third(Runnable printThird) throws InterruptedException {
+        s2.acquire();
+        // printThird.run() outputs "third". Do not change or remove this line.
+        printThird.run();
+    }
 
 }
