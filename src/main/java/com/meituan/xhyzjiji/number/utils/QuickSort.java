@@ -10,16 +10,6 @@ public class QuickSort {
 
     private static final Logger log = LoggerFactory.getLogger(QuickSort.class);
 
-//    private static final Draw draw;
-    private static final double interval = 0.05;
-    private static volatile boolean waiting = true;
-//    static {
-//        draw = new Draw();
-//        draw.setXscale(0, 1);
-//        draw.setYscale(0, 1);
-////        draw.setPenRadius(0.001);
-//    }
-
     public static void quickSort(int[] arr, int left, int right) {
         int pointer = findElementPosition(arr, left, right);
         if (left < pointer-1) {
@@ -58,10 +48,8 @@ public class QuickSort {
                 left++;
             }
             swap(arr, left, right);
-//            drawArr(arr);
         }
         swap(arr, pointer, left);
-//        drawArr(arr);
         return left;
     }
 
@@ -70,71 +58,6 @@ public class QuickSort {
         arr[sw1] = arr[sw2];
         arr[sw2] = temp;
     }
-
-    // 假设arr中元素均大于0
-//    private static void drawArr(int[] arr) {
-//        int max = -1;
-//        for (int a : arr) {
-//            max = Math.max(max, a);
-//        }
-//
-//        draw.clear();
-//        double x = interval;
-//        double y = 0;
-//        int N = arr.length;
-//        for (int i=0; i < N; i++) {
-//            int a = arr[i];
-////            draw.line(x, 0, x, (double)a/max/*归一化*/);
-//            draw.filledRectangle(1.0*i/N + 0.5/N, a/2.0/max, 0.3/N, a/2.0/max);
-//            x += interval;
-//        }
-//        draw.addListener(new DrawListener() {
-//            @Override
-//            public void mousePressed(
-//                double x,
-//                double y
-//            ) {
-//
-//            }
-//            @Override
-//            public void mouseDragged(
-//                double x,
-//                double y
-//            ) {
-//
-//            }
-//            @Override
-//            public void mouseReleased(
-//                double x,
-//                double y
-//            ) {
-//
-//            }
-//            @Override
-//            public void mouseClicked(
-//                double x,
-//                double y
-//            ) {
-//                waiting = false;
-//            }
-//            @Override
-//            public void keyTyped(char c) {
-//
-//            }
-//            @Override
-//            public void keyPressed(int keycode) {
-//
-//            }
-//            @Override
-//            public void keyReleased(int keycode) {
-//
-//            }
-//        });
-//        while (waiting) {
-//            draw.pause(500);
-//        }
-//        waiting = true;
-//    }
 
     public static void main(String[] args) {
         int[] tc = new int[] {4, 5, 2, 7, 1, 6, 3};
