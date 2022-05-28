@@ -2,6 +2,7 @@ package com.meituan.xhyzjiji.number.concurrent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.Semaphore;
@@ -60,6 +61,9 @@ public class ConcurrentPrint {
     private static final Logger log = LoggerFactory.getLogger(ConcurrentPrint.class);
 
     public static void main(String[] args) {
+        int a = 0;
+        a = (a^0x01);
+        System.out.println(Integer.toBinaryString(a));
         ConcurrentPrint solution = new ConcurrentPrint();
 
         solution.testCase(new int[] {1, 2, 3});
